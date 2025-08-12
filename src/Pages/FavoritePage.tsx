@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import type { rootState } from "../redux/Store";
@@ -6,17 +6,29 @@ import type { Book } from "../types";
 import Masonry from "react-masonry-css";
 import BookCard from "../Components/BookCard";
 
+// Define the shape of your user object
+interface User {
+  uid: string;
+  [key: string]: any;
+}
+
 export default function FavoritePage() {
-  const state = useSelector((state: rootState) => state.userReducer.userObj);
+  const state = useSelector(
+    (state: rootState) => state.userReducer.userObj as User | null
+  );
 
   const [favoriteBooks, setFavoriteBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!state?.uid) {
+      setError("You must be logged in to view favorites.");
+      setLoading(false);
+      return;
+    }
+
     const fetchFavorites = async () => {
-
-
       const db = getFirestore();
       const userRef = doc(db, "user", state.uid);
 
@@ -37,7 +49,6 @@ export default function FavoritePage() {
           return;
         }
 
-        // Fetch each favorite book from Gutendex
         const fetchedBooks: Book[] = await Promise.all(
           favorites.map(async (bookId) => {
             const res = await fetch(`https://gutendex.com/books/${bookId}`);
@@ -75,13 +86,11 @@ export default function FavoritePage() {
 
   return (
     <div>
-      <div className="mb-5  text-center md:text-left">
-        <h1 className="font-pop font-bold  text-xl xl:text-5xl dark:text-white mb-2">
+      <div className="mb-5 text-center md:text-left">
+        <h1 className="font-pop font-bold text-xl xl:text-5xl dark:text-white mb-2">
           Your Favorite Books
         </h1>
-        <p className="text-gray-500">
-          Don't Judge A Book By Its Cover!
-        </p>
+        <p className="text-gray-500">Don't Judge A Book By Its Cover!</p>
       </div>
 
       <Masonry
