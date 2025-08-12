@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages & Layout
@@ -6,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./Layouts/Mainlayout";
 import Homepage from "./Pages/Homepage";
 import BookDetailpage from "./Pages/BookDetailpage";
-import Userpage from "./Pages/Userpage";
+
 import Bookspage from "./Pages/Bookspage";
 import Aboutpage from "./Pages/Aboutpage";
 import FavoritePage from "./Pages/FavoritePage";
@@ -24,9 +23,9 @@ export default function App() {
             <Route path="/books" element={<Bookspage />} />
             <Route path="/about" element={<Aboutpage />} />
             <Route path="/book/:id" element={<BookDetailpage />} />
-            <Route path="/user" element={<Userpage />} />
+
             <Route path="/Favorites" element={<FavoritePage />} />
-     
+
             <Route path="/read/:id" element={<ReadBookPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>

@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, } from "@reduxjs/toolkit";
 
 const initialState = {
   modalOpen: false,
@@ -9,7 +9,7 @@ const modalSlice = createSlice({
   initialState,
 
   reducers: {
-    ToggleModal: (state, action: PayloadAction) => {
+    ToggleModal: (state) => {
       state.modalOpen = !state.modalOpen;
     },
   },
