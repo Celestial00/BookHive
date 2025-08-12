@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import type { Book } from "../types";
 import {
@@ -6,7 +6,7 @@ import {
   doc,
   updateDoc,
   arrayUnion,
-  setDoc,
+ 
 } from "firebase/firestore";
 
 import { useSelector } from "react-redux";

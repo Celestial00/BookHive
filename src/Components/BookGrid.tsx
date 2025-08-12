@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import BookCard from "./BookCard";
 import Masonry from "react-masonry-css"; // <-- import it
 import type { Book, GutendexResponse } from "../types";

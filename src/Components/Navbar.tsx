@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Sun, Moon, AlignJustify, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,7 +12,7 @@ export default function Navbar() {
     return storedTheme ? JSON.parse(storedTheme) : false;
   });
   const [menuOpen, setMenuOpen] = useState(false);
-  const state = useSelector((state: rootState) => state.modalReducer.modalOpen);
+
   const userState = useSelector((state: rootState) => state.userReducer);
   const dispatch: Appdispatch = useDispatch();
 

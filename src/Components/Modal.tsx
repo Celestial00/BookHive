@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import type { rootState } from "../redux/Store";
 import { ToggleModal } from "../redux/ModalSlice";
@@ -10,7 +10,7 @@ import { auth, provider, db } from "../FirebaseConfig";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { current } from "@reduxjs/toolkit";
+
 import { logIn } from "../redux/userSlice";
 import { Link } from "react-router-dom";
 
