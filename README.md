@@ -33,7 +33,7 @@ Readers can create an account, add favorite books to their personal list, and co
 📦 Installation
 ------------------------------------------------------------
 1. Clone the repository
-   git clone https://github.com/your-username/bookhive.git
+   git clone https://github.com/Celestial00/bookhive.git
    cd bookhive
 
 2. Install dependencies
